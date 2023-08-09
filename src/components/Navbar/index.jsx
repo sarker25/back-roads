@@ -1,4 +1,5 @@
-import { pageLinks, socialLinks } from "../../data";
+import PageLinks from "../PageLinks";
+import SocialLinks from "../SocialLinks";
 const Navbar = () => {
   return (
     <nav className="navbar">
@@ -10,31 +11,8 @@ const Navbar = () => {
           </button>
         </div>
         {/* <!-- left this comment on purpose --> */}
-        <ul className="nav-links" id="nav-links">
-          {pageLinks.map((page) => (
-            <li key={page.id}>
-              <a href={page.link} className="nav-link">
-                {page.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <ul className="nav-icons">
-          {socialLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={link.link}
-                target="_blank"
-                className="nav-icon"
-                rel="noreferrer"
-                title={link.name}
-              >
-                <i className={link.icon}></i>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <PageLinks parentClass="nav-links" itemClass="nav-link" />
+        <SocialLinks parentClass="nav-icons" childClass="nav-icon" />
       </div>
     </nav>
   );
